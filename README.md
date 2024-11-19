@@ -1,6 +1,14 @@
 Live URL : [Link](https://ishwarrimal.github.io/bitcoinprice-guessing-game/)  
 Demo video : [Link](https://www.loom.com/share/ca8793fe389d4ea2a5b23edb89a3583a?sid=a55bb3e0-e330-4b61-a0e1-097d794b7c6f)
 
+# Getting Started:
+1. Clone the repo `git clone https://github.com/ishwarrimal/bitcoinprice-guessing-game.git`
+2. Install required dependencies `npm install`
+3. Run the app locally: `npm run start`
+4. Testing the app: `npm run test`
+5. Deploying the app: `npm run deploy`
+    * we're currently using github pages to deploy the app.
+
 # Checklist
 
 - [x] The player can at all times see their current score and the latest available BTC price in USD
