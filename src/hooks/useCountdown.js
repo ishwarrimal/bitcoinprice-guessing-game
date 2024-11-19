@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-const SECONDS_IN_MS = 1000;
+import { SECONDS_IN_MS } from '../constants/timeConstants';
+
 export const useCountdown = (startTime, timeIntervalInSec) => {
   const [timeLeft, setTimeLeft] = useState(timeIntervalInSec);
 

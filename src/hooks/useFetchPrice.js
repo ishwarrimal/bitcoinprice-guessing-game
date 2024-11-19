@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
+import { SECONDS_IN_MS } from '../constants/timeConstants';
 
-const MAX_WAIT_TIME_MS = 2000 //Wait for 2 seconds before throwing error
+const MAX_WAIT_TIME_SEC = 20 //Wait for 2 seconds before throwing error
 
 const useFetchPrice = () => {
   const [price, setPrice] = useState(0);
@@ -27,7 +28,7 @@ const useFetchPrice = () => {
       } catch (err) {
         errorIntervalRef.current = setTimeout(() => {
             setError(event)
-        },MAX_WAIT_TIME_MS)
+        },MAX_WAIT_TIME_SEC * SECONDS_IN_MS)
       }
     });
 
@@ -35,7 +36,7 @@ const useFetchPrice = () => {
     //   setError(new Error('WebSocket error: ' + event.message));
         errorIntervalRef.current = setTimeout(() => {
             setError(event)
-        },MAX_WAIT_TIME_MS)
+        },MAX_WAIT_TIME_SEC * SECONDS_IN_MS)
     });
 
     socket.addEventListener('close', () => {
