@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import style from './gameInterface.module.css';
+import './styles.css';
 import GameResultToast from '../components/GameResultToast';
 import { fetchScoreFromLocalStorage, saveScoreToLocalStorage } from '../utils/localStorageHelper';
 import { useCountdown } from '../hooks/useCountdown';
@@ -32,8 +32,9 @@ const GameInterface = () => {
   }, [])
 
   useEffect(() => {
-    //If price changes and the user has guessed
-    if(!result.message && userGuess && timeLeft <= 0){
+    //If price changes && 
+    // the user has guessed + guess tiem has exceeded 
+    if(userGuess && timeLeft <= 0){
         let newResult = {}
         let message = ''
         let newScore = score
@@ -78,30 +79,30 @@ const GameInterface = () => {
   };
 
   return (
-    <div className={style.gameContainer}>
-      <div className={style.intervalSelection}  >
+    <div className='gameContainer'>
+      <div className='intervalSelection'>
             <label htmlFor='intervalSelection'>Select Interval</label>
             <select value={guessIntervalInSec} onChange={(e) => setGuessIntervalInSec(e.target.value)} id="intervalSelection" disabled={!!userGuess}>
               {GUESS_INTERVAL_OPTIONS_IN_SEC.map((val) => <option key={val} value={val}>{val} seconds</option>)}
             </select>
           </div>
-      <div className={style.priceDisplay}>
+      <div className='priceDisplay'>
           <p>Current BTC Price</p>
-          <div className={style.currentPrice}>
+          <div className='currentPrice'>
             <span>{loading ? 'loading...' : `$${price}`}</span>
           </div>
       </div>
-      <div className={style.scoreSection}>
-        <div className={style.scoreCounter}>Score: {score === null ? 'getting score...' : score}</div>
+      <div className='scoreSection'>
+        <div className='scoreCounter'>Score: {score === null ? 'getting score...' : score}</div>
         {userGuess ? 
           getGameLoadingTitle() :
           <p>Will Bitcoin price go Up or Down in next <span style={{fontWeight: 'bold'}}>{guessIntervalInSec} seconds</span>?</p>}
-        <div className={style.guessButtons}>
+        <div className='guessButtons'>
           {
           !userGuess && 
           <>
-            <button className={style.upButton} onClick={() => handleGuess(USER_GUESS.UP)} disabled={!!userGuess || !!loading}>UP</button>
-            <button className={style.downButton} onClick={() => handleGuess(USER_GUESS.DOWN)} disabled={!!userGuess || !!loading}>DOWN</button>
+            <button className='upButton' onClick={() => handleGuess(USER_GUESS.UP)} disabled={!!userGuess || !!loading}>UP</button>
+            <button className='downButton' onClick={() => handleGuess(USER_GUESS.DOWN)} disabled={!!userGuess || !!loading}>DOWN</button>
           </>
           }
         </div>

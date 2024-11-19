@@ -1,4 +1,4 @@
-Demo URL : [Link](https://ishwarrimal.github.io/bitcoinprice-guessing-game/)
+Live URL : [Link](https://ishwarrimal.github.io/bitcoinprice-guessing-game/)  
 Demo video : [Link](https://www.loom.com/share/1ff7cfd916f64348a7d8f3129b311f09?sid=620be07a-1f87-441a-8cbe-3a849aad42b9)
 
 # Checklist
@@ -19,7 +19,8 @@ Solution requirements:
 - [ ] The score of each player should be persisted in a backend data store (AWS services preferred)
     - This requires adding login functionality to identify and create session for each user to store in the backend.
 - [x] Please provide us a link to your deployed solution
-- Testing is encouraged
+- [-] Testing is encouraged
+    - Given time constrain, I've written test case for utils file only
 - [x] Optional: Players should be able to close their browser and return back to see their score and continue to make more guesses.
 - [x] Describe the app's functionality as well as how to run and deploy the application to the best of your ability in a README file.
 - [x] Please provide the project in a public git repository.
@@ -31,7 +32,7 @@ Solution requirements:
 4. Mobile friendly.
 
 # Future Scope:
-
+- Using TS for robustness, reliability and maintanability.
 - **Security**: Enabling authentication and authorization.
 - **Internationalization**: Creating JSON file to store UI constants.
 - **Leader board**: With login session, we can store the user score in databse.
