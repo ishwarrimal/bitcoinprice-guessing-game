@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.1e372515.css",
-    "main.js": "/static/js/main.79f98134.js",
-    "static/js/453.d826d4cf.chunk.js": "/static/js/453.d826d4cf.chunk.js",
-    "index.html": "/index.html",
-    "main.1e372515.css.map": "/static/css/main.1e372515.css.map",
-    "main.79f98134.js.map": "/static/js/main.79f98134.js.map",
-    "453.d826d4cf.chunk.js.map": "/static/js/453.d826d4cf.chunk.js.map"
+    "main.css": "/bitcoinprice-guessing-game/static/css/main.1e372515.css",
+    "main.js": "/bitcoinprice-guessing-game/static/js/main.9d090de6.js",
+    "static/js/453.d826d4cf.chunk.js": "/bitcoinprice-guessing-game/static/js/453.d826d4cf.chunk.js",
+    "index.html": "/bitcoinprice-guessing-game/index.html",
+    "main.1e372515.css.map": "/bitcoinprice-guessing-game/static/css/main.1e372515.css.map",
+    "main.9d090de6.js.map": "/bitcoinprice-guessing-game/static/js/main.9d090de6.js.map",
+    "453.d826d4cf.chunk.js.map": "/bitcoinprice-guessing-game/static/js/453.d826d4cf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1e372515.css",
-    "static/js/main.79f98134.js"
+    "static/js/main.9d090de6.js"
   ]
 }
