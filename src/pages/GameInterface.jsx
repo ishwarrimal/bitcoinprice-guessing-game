@@ -20,7 +20,7 @@ const GameInterface = () => {
   const [startTime, setStartTime] = useState(null);
   const [result, setResult] = useState(DEFAULT_RESULT);
   const [score, setScore] = useState(null);
-  const { price, loading } = useFetchPrice();
+  const { price, loading, error } = useFetchPrice();
   
   const timeLeft = useCountdown(startTime, guessIntervalInSec);
 
@@ -39,17 +39,16 @@ const GameInterface = () => {
         let message = ''
         let newScore = score
         const priceDiff = price - Number(oldPriceRef.current)
-        console.log(oldPriceRef.current, price)
         if(priceDiff > 0 && userGuess === USER_GUESS.UP || priceDiff < 0 && userGuess === USER_GUESS.DOWN){
-          message = `You guessed correctly.`
+          message = `You guessed correctly. The price went ${userGuess} `
           newScore++
           newResult.success = true
         }else{
-          message = `Wrong guess.`
+          message = `Wrong guess. The price went ${userGuess === USER_GUESS.UP ? USER_GUESS.DOWN : USER_GUESS.UP} `
           newScore = score - 1 > 0 ? score - 1 : 0
           newResult.success = false
         }
-        message += `The price went ${userGuess} by $${Math.abs(priceDiff).toFixed(2)}`;
+        message += `by ${Math.abs(priceDiff.toFixed(2))}$`;
         newResult.message = message
         setResult(newResult)
         saveScoreToLocalStorage(newScore)
