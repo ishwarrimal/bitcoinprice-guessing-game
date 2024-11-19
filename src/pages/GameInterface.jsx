@@ -18,13 +18,13 @@ const GameInterface = () => {
   const [guessIntervalInSec, setGuessIntervalInSec] = useState(GUESS_INTERVAL_OPTIONS_IN_SEC[0]) //Option to select interval
   const [userGuess, setUserGuess] = useState(null); //UP | DOWN | null
   const [startTime, setStartTime] = useState(null); //to start the counter
-  const [result, setResult] = useState(DEFAULT_RESULT); //message to show tot the user
+  const [result, setResult] = useState(DEFAULT_RESULT); //message to show the user
   const [score, setScore] = useState(null); //User score
   const { price, loading, error } = useFetchPrice();
   
   const timeLeft = useCountdown(startTime, guessIntervalInSec);
 
-  //To hold old price for comparison and source of trth for users
+  //To hold old price for comparison and source of truth for users
   const oldPriceRef = useRef(null);
   
   useEffect(() => {

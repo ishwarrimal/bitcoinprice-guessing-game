@@ -1,5 +1,7 @@
 # Bitcoin Price Guessing Game
 
+A game that challenges you to predict whether the price of Bitcoin (BTC/USD) will rise or fall after 10 seconds (You can configure this). It utilizes real-time Bitcoin prices from reliable online sources, ensuring accurate and up-to-date information.
+
 <img width="950" alt="Screenshot 2024-11-19 at 4 47 16 PM" src="https://github.com/user-attachments/assets/1a8538bf-f1bf-4343-8dc0-da569138e501">
 
 
