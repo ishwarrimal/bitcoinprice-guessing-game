@@ -19,8 +19,6 @@ Demo video : [Link](https://www.loom.com/share/ca8793fe389d4ea2a5b23edb89a3583a?
 # Checklist
 
 - [x] The player can at all times see their current score and the latest available BTC price in USD
-    - Using webhooks to get live bitcoin price.
-    - Browser local storage is used to fetch/save user's score and persist it.
 - [x] The player can choose to enter a guess of either “up” or “down“
 - [x] After a guess is entered the player cannot make new guesses until the existing guess is resolved
 - [x] The guess is resolved when the price changes and at least 60 seconds have passed since the guess was made
@@ -32,13 +30,25 @@ Solution requirements:
 
 - [x] The guesses should be resolved fairly using BTC price data from any available 3rd party API
 - [ ] The score of each player should be persisted in a backend data store (AWS services preferred)
-    - This requires adding login functionality to identify and create a session for each user to store in the backend.
 - [x] Please provide us a link to your deployed solution
-- [-] Testing is encouraged
-    - Given time constrain, I've written test cases for utils file only
+- [x] Testing is encouraged
 - [x] Optional: Players should be able to close their browser and return back to see their score and continue to make more guesses.
 - [x] Describe the app's functionality as well as how to run and deploy the application to the best of your ability in a README file.
 - [x] Please provide the project in a public git repository.
+
+## Solution Walkthrough:
+1. **Live Price**
+   - Used web sockets to fetch live BTC price.
+2. **Persisting user score**
+   - Used local storage of the browser to persist their score.
+3. **Live UI Updates**
+   - Used custom hooks for fetchingPrice and showing countdown
+4. **Customizability**
+   - Option for user to select 10,30,60 seconds guessing time. (I don't think you'd want to wait 60 seconds to see if my solution works)
+5. **CI/CD**
+   - Created github workflows and integrated with GH Pages to deploy app while running workflow.
+6. **Testing**
+   - Testing for utility files using React Testing Library
 
 ## Additional Implementation:
 1. Implemented webhooks to retrieve live pricing data.
