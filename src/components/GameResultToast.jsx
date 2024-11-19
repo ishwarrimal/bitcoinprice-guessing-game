@@ -16,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function GameResultToast({message, oldPrice, newPrice, onClose}) {
+export default function GameResultToast({message, onClose}) {
   const [open, setOpen] = React.useState(true);
   const handleClose = () => {
     setOpen(false);
@@ -37,9 +37,6 @@ export default function GameResultToast({message, oldPrice, newPrice, onClose}) 
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {message}
-            <p>Old : {oldPrice} </p> 
-            <p>New: {newPrice} </p> 
-            <p>Diff : {newPrice - oldPrice}</p>
           </Typography>
         </Box>
       </Modal>
