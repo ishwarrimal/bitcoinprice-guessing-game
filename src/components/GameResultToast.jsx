@@ -12,21 +12,21 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  borderRadius: '8px',
   boxShadow: 24,
+  color: 'white',
   p: 4,
 };
 
-export default function TransitionsModal({message}) {
-  const [open, setOpen] = React.useState(true);
-  const handleClose = () => setOpen(false);
+export default function TransitionsModal({result: {message, success}, onClose}) {
+  const handleClose = () => onClose();
 
   return (
     <div>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={open}
+        open={true}
         onClose={handleClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
@@ -36,10 +36,10 @@ export default function TransitionsModal({message}) {
           },
         }}
       >
-        <Fade in={open}>
-          <Box sx={style}>
+        <Fade in={true}>
+          <Box sx={{...style, bgcolor: success ? 'darkseagreen' : 'indianred'}}>
             <Typography id="transition-modal-title" variant="h6" component="h2">
-              Result
+              {success ? 'Congratulations' : 'On No!'}
             </Typography>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
               {message}

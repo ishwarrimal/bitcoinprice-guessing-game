@@ -24,7 +24,7 @@ Solution requirements:
 - [x] Describe the app's functionality as well as how to run and deploy the application to the best of your ability in a README file.
 - [x] Please provide the project in a public git repository.
 
-## Additional Features:
+## Additional Implementation:
 1. Used webhooks to fetch live price.
 2. Used custom hooks to fetch live price and show the counter.
 3. Integrated wtih Github actions for Continuous Delivery.

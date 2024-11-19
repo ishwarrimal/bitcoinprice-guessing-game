@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 const MAX_WAIT_TIME_MS = 2000 //Wait for 2 seconds before throwing error
 
 const useFetchPrice = () => {
-  const [price, setPrice] = useState(null);
+  const [price, setPrice] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -20,8 +20,10 @@ const useFetchPrice = () => {
       try {
         clearTimeout(errorIntervalRef.current)
         const data = JSON.parse(event.data);
-        !isNaN(data.bitcoin) && setPrice(data.bitcoin);
-        setLoading(false);
+        if(!isNaN(data.bitcoin)){
+            setPrice(data.bitcoin);
+            setLoading(false);
+        }
       } catch (err) {
         errorIntervalRef.current = setTimeout(() => {
             setError(event)

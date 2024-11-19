@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import style from './gameInterface.module.css';
 import GameResultToast from '../components/GameResultToast';
 import { fetchScoreFromLocalStorage, saveScoreToLocalStorage } from '../utils/localStorageHelper';
-import AlertDialog from '../components/ErrorDialogue';
 import { useCountdown } from '../hooks/useCountdown';
 import useFetchPrice from '../hooks/useFetchPrice';
 
@@ -11,15 +10,17 @@ const USER_GUESS = {
   DOWN: "down"
 }
 
+const DEFAULT_RESULT = {message: null, success: null}
+
 const GUESS_INTERVAL_OPTIONS_IN_SEC = [10,30,60]
 
 const GameInterface = () => {
   const [guessIntervalInSec, setGuessIntervalInSec] = useState(GUESS_INTERVAL_OPTIONS_IN_SEC[0])
   const [userGuess, setUserGuess] = useState(null);
   const [startTime, setStartTime] = useState(null);
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState(DEFAULT_RESULT);
   const [score, setScore] = useState(null);
-  const { price, loading, error } = useFetchPrice();
+  const { price, loading } = useFetchPrice();
   
   const timeLeft = useCountdown(startTime, guessIntervalInSec);
 
@@ -32,22 +33,24 @@ const GameInterface = () => {
 
   useEffect(() => {
     //If price changes and the user has guessed
-    if(userGuess && timeLeft <= 0){
+    if(!result.message && userGuess && timeLeft <= 0){
+        let newResult = {}
         let message = ''
         let newScore = score
         const priceDiff = price - Number(oldPriceRef.current)
+        console.log(oldPriceRef.current, price)
         if(priceDiff > 0 && userGuess === USER_GUESS.UP || priceDiff < 0 && userGuess === USER_GUESS.DOWN){
-          message = "Congratulation, you have guessed correctly. `"
+          message = `You guessed correctly.`
           newScore++
+          newResult.success = true
         }else{
-          message = "On No, you guessed it wrong"
+          message = `Wrong guess.`
           newScore = score - 1 > 0 ? score - 1 : 0
+          newResult.success = false
         }
-        message += ` Your Guess was ${userGuess.toUpperCase()},
-                    the old price was ${oldPriceRef.current}, 
-                    the new price is ${price}, 
-                    the price difference is ${price - oldPriceRef.current}`
-        setResult(message)
+        message += `The price went ${userGuess} by $${Math.abs(priceDiff).toFixed(2)}`;
+        newResult.message = message
+        setResult(newResult)
         saveScoreToLocalStorage(newScore)
         setUserGuess(null)
         setStartTime(null)
@@ -92,17 +95,19 @@ const GameInterface = () => {
         <div className={style.scoreCounter}>Score: {score === null ? 'getting score...' : score}</div>
         {userGuess ? 
           getGameLoadingTitle() :
-          <p>Will Bitcoin price go Up or Down in next <span style={{fontWeight: 'bold'}}>{guessIntervalInSec} seconds</span></p>}
+          <p>Will Bitcoin price go Up or Down in next <span style={{fontWeight: 'bold'}}>{guessIntervalInSec} seconds</span>?</p>}
         <div className={style.guessButtons}>
-          <button className={style.upButton} onClick={() => handleGuess(USER_GUESS.UP)} disabled={!!userGuess || !!loading}>UP</button>
-          <button className={style.downButton} onClick={() => handleGuess(USER_GUESS.DOWN)} disabled={!!userGuess || !!loading}>DOWN</button>
+          {
+          !userGuess && 
+          <>
+            <button className={style.upButton} onClick={() => handleGuess(USER_GUESS.UP)} disabled={!!userGuess || !!loading}>UP</button>
+            <button className={style.downButton} onClick={() => handleGuess(USER_GUESS.DOWN)} disabled={!!userGuess || !!loading}>DOWN</button>
+          </>
+          }
         </div>
       </div>
       {
-        result && <GameResultToast message={result} oldPrice={oldPriceRef.current} newPrice={price} onClose={() => setResult(null)} />
-      }
-      {
-        error && <AlertDialog onClose={() => error = null} />
+        result.message && <GameResultToast result={result} oldPrice={oldPriceRef.current} newPrice={price} onClose={() => setResult(DEFAULT_RESULT)} />
       }
     </div>
   );
