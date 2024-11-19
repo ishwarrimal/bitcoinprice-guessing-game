@@ -15,11 +15,11 @@ const DEFAULT_RESULT = {message: null, success: null}
 const GUESS_INTERVAL_OPTIONS_IN_SEC = [10,30,60]
 
 const GameInterface = () => {
-  const [guessIntervalInSec, setGuessIntervalInSec] = useState(GUESS_INTERVAL_OPTIONS_IN_SEC[0])
-  const [userGuess, setUserGuess] = useState(null);
-  const [startTime, setStartTime] = useState(null);
-  const [result, setResult] = useState(DEFAULT_RESULT);
-  const [score, setScore] = useState(null);
+  const [guessIntervalInSec, setGuessIntervalInSec] = useState(GUESS_INTERVAL_OPTIONS_IN_SEC[0]) //Option to select interval
+  const [userGuess, setUserGuess] = useState(null); //UP | DOWN | null
+  const [startTime, setStartTime] = useState(null); //to start the counter
+  const [result, setResult] = useState(DEFAULT_RESULT); //message to show tot the user
+  const [score, setScore] = useState(null); //User score
   const { price, loading, error } = useFetchPrice();
   
   const timeLeft = useCountdown(startTime, guessIntervalInSec);
@@ -32,8 +32,8 @@ const GameInterface = () => {
   }, [])
 
   useEffect(() => {
-    //If price changes && 
-    // the user has guessed + guess tiem has exceeded 
+    //If price changes &&  the user has guessed + guess time has exceeded 
+    // then do the comparison and show the result
     if(userGuess && timeLeft <= 0){
         let newResult = {}
         let message = ''
@@ -80,30 +80,32 @@ const GameInterface = () => {
   return (
     <div className='gameContainer'>
       <div className='intervalSelection'>
-            <label htmlFor='intervalSelection'>Select Interval</label>
-            <select value={guessIntervalInSec} onChange={(e) => setGuessIntervalInSec(e.target.value)} id="intervalSelection" disabled={!!userGuess}>
-              {GUESS_INTERVAL_OPTIONS_IN_SEC.map((val) => <option key={val} value={val}>{val} seconds</option>)}
-            </select>
-          </div>
+        <label htmlFor='intervalSelection'>Select Interval</label>
+        <select value={guessIntervalInSec} onChange={(e) => setGuessIntervalInSec(e.target.value)} id="intervalSelection" disabled={!!userGuess}>
+          {GUESS_INTERVAL_OPTIONS_IN_SEC.map((val) => <option key={val} value={val}>{val} seconds</option>)}
+        </select>
+      </div>
       <div className='priceDisplay'>
-          <p>Current BTC Price</p>
-          <div className='currentPrice'>
-            <span>{loading ? 'loading...' : `$${price}`}</span>
-          </div>
+        <p>Current BTC Price</p>
+        <div className='currentPrice'>
+          <span>{loading ? 'loading...' : `$${price}`}</span>
+        </div>
       </div>
       <div className='scoreSection'>
         <div className='scoreCounter'>Score: {score === null ? 'getting score...' : score}</div>
-        {userGuess ? 
+        {
+          userGuess ? 
           getGameLoadingTitle() :
-          <p>Will Bitcoin price go Up or Down in next <span style={{fontWeight: 'bold'}}>{guessIntervalInSec} seconds</span>?</p>}
+          <p>Will Bitcoin price go Up or Down in next <span style={{fontWeight: 'bold'}}>{guessIntervalInSec} seconds</span>?</p>
+        }
         <div className='guessButtons'>
-          {
+        {
           !userGuess && 
           <>
             <button className='upButton' onClick={() => handleGuess(USER_GUESS.UP)} disabled={!!userGuess || !!loading}>UP</button>
             <button className='downButton' onClick={() => handleGuess(USER_GUESS.DOWN)} disabled={!!userGuess || !!loading}>DOWN</button>
           </>
-          }
+        }
         </div>
       </div>
       {
