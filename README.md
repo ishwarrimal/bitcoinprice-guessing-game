@@ -1,5 +1,5 @@
 Live URL : [Link](https://ishwarrimal.github.io/bitcoinprice-guessing-game/)  
-Demo video : [Link](https://www.loom.com/share/1ff7cfd916f64348a7d8f3129b311f09?sid=620be07a-1f87-441a-8cbe-3a849aad42b9)
+Demo video : [Link](https://www.loom.com/share/ca8793fe389d4ea2a5b23edb89a3583a?sid=a55bb3e0-e330-4b61-a0e1-097d794b7c6f)
 
 # Checklist
 
