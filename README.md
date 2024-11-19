@@ -1,46 +1,24 @@
-# Getting Started with Create React App
+# Requirements
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Please, build a web app that allows users to make guesses on whether the market price of Bitcoin (BTC/USD) will be higher or lower after one minute.
 
-In the project directory, you can run:
+Rules:
 
-### `npm start`
+- The player can at all times see their current score and the latest available BTC price in USD
+- The player can choose to enter a guess of either “up” or “down“
+- After a guess is entered the player cannot make new guesses until the existing guess is resolved
+- The guess is resolved when the price changes and at least 60 seconds have passed since the guess was made
+- If the guess is correct (up = price went higher, down = price went lower), the user gets 1 point added to their score. If the guess is incorrect, the user loses 1 point.
+- Players can only make one guess at a time
+- New players start with a score of 0
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Solution requirements:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The guesses should be resolved fairly using BTC price data from any available 3rd party API
+- The score of each player should be persisted in a backend data store (AWS services preferred)
+- Please provide us a link to your deployed solution
+- Testing is encouraged
+- Optional: Players should be able to close their browser and return back to see their score and continue to make more guesses.
+- Describe the app's functionality as well as how to run and deploy the application to the best of your ability in a README file.
+- Please provide the project in a public git repository.
