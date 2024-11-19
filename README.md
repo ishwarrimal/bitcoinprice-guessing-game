@@ -49,13 +49,9 @@ Solution requirements:
    - Created github workflows and integrated with GH Pages to deploy app while running workflow.
 6. **Testing**
    - Testing for utility files using React Testing Library
+7. **Mobile Friendly**
+   - Optimized the application for mobile responsiveness.
 
-## Additional Implementation:
-1. Implemented webhooks to retrieve live pricing data.
-2. Developed custom hooks to fetch live prices and display a counter.
-3. Set up a webhook pipeline for continuous integration and deployment (CI/CD).
-4. Integrated GitHub Actions to facilitate continuous delivery.
-5. Optimized the application for mobile responsiveness.
 
 # Future Scope:
 - Using TS for robustness, reliability, and maintainability.
