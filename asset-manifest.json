@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/bitcoinprice-guessing-game/static/css/main.1e372515.css",
-    "main.js": "/bitcoinprice-guessing-game/static/js/main.aa1f5375.js",
+    "main.css": "/bitcoinprice-guessing-game/static/css/main.99f9bb10.css",
+    "main.js": "/bitcoinprice-guessing-game/static/js/main.76929b7d.js",
     "static/js/453.d826d4cf.chunk.js": "/bitcoinprice-guessing-game/static/js/453.d826d4cf.chunk.js",
     "index.html": "/bitcoinprice-guessing-game/index.html",
-    "main.1e372515.css.map": "/bitcoinprice-guessing-game/static/css/main.1e372515.css.map",
-    "main.aa1f5375.js.map": "/bitcoinprice-guessing-game/static/js/main.aa1f5375.js.map",
+    "main.99f9bb10.css.map": "/bitcoinprice-guessing-game/static/css/main.99f9bb10.css.map",
+    "main.76929b7d.js.map": "/bitcoinprice-guessing-game/static/js/main.76929b7d.js.map",
     "453.d826d4cf.chunk.js.map": "/bitcoinprice-guessing-game/static/js/453.d826d4cf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e372515.css",
-    "static/js/main.aa1f5375.js"
+    "static/css/main.99f9bb10.css",
+    "static/js/main.76929b7d.js"
   ]
 }
