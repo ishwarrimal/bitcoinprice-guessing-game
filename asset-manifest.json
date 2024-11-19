@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bitcoinprice-guessing-game/static/css/main.1e372515.css",
-    "main.js": "/bitcoinprice-guessing-game/static/js/main.cfc821d9.js",
+    "main.js": "/bitcoinprice-guessing-game/static/js/main.faf9375c.js",
     "static/js/453.d826d4cf.chunk.js": "/bitcoinprice-guessing-game/static/js/453.d826d4cf.chunk.js",
     "index.html": "/bitcoinprice-guessing-game/index.html",
     "main.1e372515.css.map": "/bitcoinprice-guessing-game/static/css/main.1e372515.css.map",
-    "main.cfc821d9.js.map": "/bitcoinprice-guessing-game/static/js/main.cfc821d9.js.map",
+    "main.faf9375c.js.map": "/bitcoinprice-guessing-game/static/js/main.faf9375c.js.map",
     "453.d826d4cf.chunk.js.map": "/bitcoinprice-guessing-game/static/js/453.d826d4cf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1e372515.css",
-    "static/js/main.cfc821d9.js"
+    "static/js/main.faf9375c.js"
   ]
 }
