@@ -37,7 +37,9 @@ export default function GameResultToast({message, oldPrice, newPrice, onClose}) 
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {message}
-            <p>Old : {oldPrice} | New: {newPrice} | Diff : {newPrice - oldPrice}</p>
+            <p>Old : {oldPrice} </p> 
+            <p>New: {newPrice} </p> 
+            <p>Diff : {newPrice - oldPrice}</p>
           </Typography>
         </Box>
       </Modal>

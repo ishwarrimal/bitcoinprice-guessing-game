@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useCountdown } from '../hooks/useCountdown';
-import { fetchAndParseBTCPriceData } from '../lib/api';
 import { LuRefreshCw, LuRefreshCwOff } from "react-icons/lu";
-import { fetchScoreFromLocalStorage, saveScoreToLocalStorage } from '../utils/localStorageHelper';
-import GameResultToast from '../components/GameResultToast';
 import Tooltip from '@mui/material/Tooltip';
 import style from './gameInterface.module.css';
+import GameResultToast from '../components/GameResultToast';
+import { fetchScoreFromLocalStorage, saveScoreToLocalStorage } from '../utils/localStorageHelper';
+import AlertDialog from '../components/ErrorDialogue';
+import { useCountdown } from '../hooks/useCountdown';
+import { fetchAndParseBTCPriceData } from '../lib/api';
 
 const USER_GUESS = {
   UP: "up",
@@ -15,7 +16,7 @@ const USER_GUESS = {
 const GUESS_INTERVAL_OPTIONS_IN_SEC = [10,30,60]
 
 const GameInterface = () => {
-  const [guessIntervalInSec, setGuessIntervalInSec] = useState(GUESS_INTERVAL_OPTIONS_IN_SEC[0])
+  const [guessIntervalInSec, setGuessIntervalInSec] = useState(GUESS_INTERVAL_OPTIONS_IN_SEC[2])
   const [priceData, setPriceData] = useState({price: 0, lastUpdated: new Date()})
   const [userGuess, setUserGuess] = useState(null);
   const [startTime, setStartTime] = useState(null);
@@ -115,6 +116,9 @@ const GameInterface = () => {
       </div>
       {
         result && <GameResultToast message={result} oldPrice={oldPriceRef.current} newPrice={priceData.price} onClose={() => setResult(null)} />
+      }
+      {
+        error && <AlertDialog onClose={() => setError(null)} />
       }
     </div>
   );
