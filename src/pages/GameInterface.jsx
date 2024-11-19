@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useCountdown } from '../hooks/useCountdown';
 import { fetchAndParseBTCPriceData } from '../lib/api';
-import { LuRefreshCw } from "react-icons/lu";
+import { LuRefreshCw, LuRefreshCwOff } from "react-icons/lu";
 import { fetchScoreFromLocalStorage, saveScoreToLocalStorage } from '../utils/localStorageHelper';
 import GameResultToast from '../components/GameResultToast';
 import Tooltip from '@mui/material/Tooltip';
@@ -101,7 +101,7 @@ const GameInterface = () => {
           <Tooltip title={`${userGuess ? "You can't refresh at this moment" : "Click to refresh!"}`}> 
           <div className={style.currentPrice} onClick={() => !userGuess && fetchLatestBTCPrice()}>
             <span>{loading ? 'loading...' : `$${priceData.price}`}</span>
-            {!loading && <LuRefreshCw />}
+            {!loading && !userGuess ? <LuRefreshCw /> : <LuRefreshCwOff />}
           </div>
           </Tooltip>
       </div>
