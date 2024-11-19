@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Tooltip from '@mui/material/Tooltip';
 import style from './gameInterface.module.css';
 import GameResultToast from '../components/GameResultToast';
 import { fetchScoreFromLocalStorage, saveScoreToLocalStorage } from '../utils/localStorageHelper';
@@ -85,11 +84,9 @@ const GameInterface = () => {
           </div>
       <div className={style.priceDisplay}>
           <p>Current BTC Price</p>
-          <Tooltip title={`${userGuess ? "You can't refresh at this moment" : "Click to refresh!"}`}> 
           <div className={style.currentPrice}>
             <span>{loading ? 'loading...' : `$${price}`}</span>
           </div>
-          </Tooltip>
       </div>
       <div className={style.scoreSection}>
         <div className={style.scoreCounter}>Score: {score === null ? 'getting score...' : score}</div>

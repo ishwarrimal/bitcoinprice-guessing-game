@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 const MAX_WAIT_TIME_MS = 2000 //Wait for 2 seconds before throwing error
 
 const useFetchPrice = () => {
-  const [price, setPrice] = useState({ bitcoin: null, ethereum: null });
+  const [price, setPrice] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
