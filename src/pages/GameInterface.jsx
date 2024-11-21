@@ -5,6 +5,7 @@ import { fetchScoreFromLocalStorage, saveScoreToLocalStorage } from '../utils/lo
 import { useCountdown } from '../hooks/useCountdown';
 import useFetchPrice from '../hooks/useFetchPrice';
 import GameRules from '../components/GameRules';
+import { getUserScore } from '../utils/apiHelper';
 
 const USER_GUESS = {
   UP: "up",
@@ -60,7 +61,12 @@ const GameInterface = () => {
   }, [price])
 
   function getUserLatestScore(){
-    setScore(fetchScoreFromLocalStorage() || 0)
+    // setScore(fetchScoreFromLocalStorage() || 0)
+    getUserScore().then(data => {
+      debugger
+    }).catch(e => {
+      debugger
+    })
   }
 
   function getGameLoadingTitle(){
