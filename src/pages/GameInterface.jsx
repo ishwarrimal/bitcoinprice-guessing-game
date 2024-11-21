@@ -1,3 +1,5 @@
+import { withAuthenticator, useAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css'
 import React, { useEffect, useState, useRef } from 'react';
 import './styles.css';
 import GameResultToast from '../components/GameResultToast';
@@ -23,6 +25,8 @@ const GameInterface = () => {
   const [result, setResult] = useState(DEFAULT_RESULT); //message to show the user
   const [score, setScore] = useState(null); //User score
   const { price, loading, error } = useFetchPrice();
+
+  const { signOut } = useAuthenticator()
   
   const timeLeft = useCountdown(startTime, guessIntervalInSec);
 
@@ -61,12 +65,7 @@ const GameInterface = () => {
   }, [price])
 
   function getUserLatestScore(){
-    // setScore(fetchScoreFromLocalStorage() || 0)
-    getUserScore().then(data => {
-      debugger
-    }).catch(e => {
-      debugger
-    })
+    setScore(fetchScoreFromLocalStorage() || 0)
   }
 
   function getGameLoadingTitle(){
@@ -119,8 +118,11 @@ const GameInterface = () => {
         result.message && <GameResultToast result={result} oldPrice={oldPriceRef.current} newPrice={price} onClose={() => setResult(DEFAULT_RESULT)} />
       }
       <GameRules />
+      <div className="signout">
+      <button onClick={() => signOut()}>Log Out</button>
+      </div>
     </div>
   );
 };
 
-export default GameInterface;
+export default withAuthenticator(GameInterface);
