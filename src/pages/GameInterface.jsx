@@ -4,6 +4,7 @@ import GameResultToast from '../components/GameResultToast';
 import { fetchScoreFromLocalStorage, saveScoreToLocalStorage } from '../utils/localStorageHelper';
 import { useCountdown } from '../hooks/useCountdown';
 import useFetchPrice from '../hooks/useFetchPrice';
+import GameRules from '../components/GameRules';
 
 const USER_GUESS = {
   UP: "up",
@@ -111,6 +112,7 @@ const GameInterface = () => {
       {
         result.message && <GameResultToast result={result} oldPrice={oldPriceRef.current} newPrice={price} onClose={() => setResult(DEFAULT_RESULT)} />
       }
+      <GameRules />
     </div>
   );
 };
