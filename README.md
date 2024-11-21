@@ -2,7 +2,12 @@
 
 A game that challenges you to predict whether the price of Bitcoin (BTC/USD) will rise or fall after 10 seconds (You can configure this). It utilizes real-time Bitcoin prices from reliable online sources, ensuring accurate and up-to-date information.
 
-<img width="950" alt="Screenshot 2024-11-19 at 4 47 16 PM" src="https://github.com/user-attachments/assets/1a8538bf-f1bf-4343-8dc0-da569138e501">
+Login Screen  
+<img width="896" alt="Screenshot 2024-11-21 at 10 17 14 AM" src="https://github.com/user-attachments/assets/1c5deb83-2f23-456c-95a9-cd7edfdf807e">
+
+Game screen with option to logout
+<img width="891" alt="Screenshot 2024-11-21 at 10 17 40 AM" src="https://github.com/user-attachments/assets/6fe71b4c-4d75-48f9-8e73-7ffffde33973">
+
 
 
 Live URL : [Link](https://ishwarrimal.github.io/bitcoinprice-guessing-game/)  
