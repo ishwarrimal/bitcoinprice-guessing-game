@@ -1,12 +1,13 @@
-# Bitcoin Price Guessing Game
+<img width="891" alt="Screenshot 2024-11-21 at 10 17 40 AM" src="https://github.com/user-attachments/assets/de3585be-d6fc-4ddd-af8e-df5a305b90eb"># Bitcoin Price Guessing Game
 
 A game that challenges you to predict whether the price of Bitcoin (BTC/USD) will rise or fall after 10 seconds (You can configure this). It utilizes real-time Bitcoin prices from reliable online sources, ensuring accurate and up-to-date information.
 
 <img width="950" alt="Screenshot 2024-11-19 at 4 47 16 PM" src="https://github.com/user-attachments/assets/1a8538bf-f1bf-4343-8dc0-da569138e501">
 
-
 Live URL : [Link](https://ishwarrimal.github.io/bitcoinprice-guessing-game/)  
 Demo video : [Link](https://www.loom.com/share/ca8793fe389d4ea2a5b23edb89a3583a?sid=a55bb3e0-e330-4b61-a0e1-097d794b7c6f)
+
+**NOTE**: Authentication handled using AWS amplify on a separate branch: [feat/login](https://github.com/ishwarrimal/bitcoinprice-guessing-game/tree/feat/login)
 
 # Getting Started:
 1. Clone the repo `git clone https://github.com/ishwarrimal/bitcoinprice-guessing-game.git`
@@ -51,6 +52,8 @@ Solution requirements:
    - Testing for utility files using React Testing Library
 7. **Mobile Friendly**
    - Optimized the application for mobile responsiveness.
+8. **User Authentication**
+  - Utilized AWS Amplify for user authentication on a separate branch [feat/login](https://github.com/ishwarrimal/bitcoinprice-guessing-game/tree/feat/login)
 
 
 # Future Scope:
