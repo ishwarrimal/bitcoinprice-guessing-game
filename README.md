@@ -53,7 +53,7 @@ Solution requirements:
 7. **Mobile Friendly**
    - Optimized the application for mobile responsiveness.
 8. **User Authentication**
-  - Utilized AWS Amplify for user authentication on a separate branch [feat/login](https://github.com/ishwarrimal/bitcoinprice-guessing-game/tree/feat/login)
+  - Utilized AWS Cognito for user authentication on a separate branch [feat/login](https://github.com/ishwarrimal/bitcoinprice-guessing-game/tree/feat/login)
 
 
 # Future Scope:
