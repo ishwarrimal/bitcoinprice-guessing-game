@@ -1,4 +1,4 @@
-# Bitcoin Price Guessing Game
+# Bitcoin Price Guessing Game [![Deploy to GitHub Pages](https://github.com/ishwarrimal/bitcoinprice-guessing-game/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/ishwarrimal/bitcoinprice-guessing-game/actions/workflows/deploy.yml)
 
 A game that challenges you to predict whether the price of Bitcoin (BTC/USD) will rise or fall after 10 seconds (You can configure this). It utilizes real-time Bitcoin prices from reliable online sources, ensuring accurate and up-to-date information.
 
